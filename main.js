@@ -91,36 +91,6 @@ async function createPdfFromPage(id, page) {
     console.log('Pdf created');
 }
 
-// Retarded
-
-// async function parseData() {
-//     const browser = await puppeteer.launch()
-//     const page = await browser.newPage()
-//     const array = await findAllIds();
-//     let data;
-
-//     // console.log(globalDocArray);
-//     for (let i = 0; i < array.length; i++) {
-//         data = await getDocument(array[i]);
-//         for (let j = 0; j < data.items.length; j++) {
-//             console.log(`Processing event id number ${data.items[j].id}...`);
-//             await createPdfFromPage(data.items[j].id, page);
-//             let metadata = {
-//                 id : data.items[j].id,
-//                 title : data.items[j].title,
-//                 description : data.items[j].description,
-//                 date: data.items[j].date,
-//                 tags : data.items[j].tags,
-//                 url: `https://cert.gov.ua/article/${data.items[j].id}`
-//             };
-//             // save metadata as json file
-//             fs.writeFile(`event_${data.items[j].id}.json`, JSON.stringify(metadata));
-//             //await sleep();
-//         }
-//     }
-//     await browser.close()
-// }
-
 async function parseData() {
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
