@@ -1,0 +1,23 @@
+{
+    "name": "cert-ua",
+    "version": "1.0.0",
+    "description": "",
+    "main": "main.js",
+    "type": "module",
+    "scripts": {
+        "pouet": "node main.js",
+        "prout": "node ocrportal.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "google-translate": "^3.0.0",
+        "node-fetch": "^2.6.7",
+        "pdf-lib": "^1.17.1",
+        "puppeteer": "^16.1.0"
+    },
+    "devDependencies": {
+        "@google-cloud/translate": "^7.0.0"
+    }
+}
