@@ -31,15 +31,27 @@ var globalDocArray = [];
 //     const page = await browser.newPage()
 //     //await page.goto(`https://translate.google.fr/?hl=en&sl=uk&tl=en&text=${text}&op=translate`);
 //     await page.goto(`https://translate.google.fr/?hl=en&sl=uk&tl=en&op=translate`);
+//     await page.pdf({
+//         path: `GOOGLECHECK.pdf`,
+//     });
+//     await Promise.all([
+//         await page.click(".VfPpkd-LgbsSe VfPpkd-LgbsSe-OWXEXe-k8QpJ VfPpkd-LgbsSe-OWXEXe-dgl2Hf nCP5yc AjY5Oe DuMIQc LQeN7 Nc7WLe"),
+//         {waitUntil: 'networkidle0'},
+//     ]);
+//     fs.writeFile("rawhtml.htmt", await page.content(), (err, result) => {
+//         if (err) {console.log('error', err)}
+//     });
 //     await page.setDefaultNavigationTimeout(10);
-//     input.keyboard.type(text);
+//     page.keyboard.type(text);
 //     //await page.focus('.QFw9Te > .er8xn');
-//     await page.type("textarea", text);
+//     await page.type(".er8xn", text);
 //     await page.waitForSelector("span .Q4iAWc");
 //     const phrases = await page.$$eval(".Q4iAWc", els => els.map(e => e.textContent));
 //     console.log(phrases.join(" "));
 //     await browser.close()
 // }
+
+// await otherTranslate("Рекомендац");
 
 async function sleep() {
     return new Promise(resolve => {
@@ -84,7 +96,9 @@ async function findAllIds() {
 }
 
 async function createPdfFromPage(id, page) {
-    await page.goto(`https://cert.gov.ua/article/${id}`)
+    await page.goto(`https://cert.gov.ua/article/${id}`, {
+        waitUntil: 'networkidle0',
+    });
     await page.pdf({
         path: `event_${id}.pdf`,
     });
